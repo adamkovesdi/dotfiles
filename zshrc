@@ -1,5 +1,4 @@
 # Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -25,21 +24,31 @@ compinit
 # liquidprompt
 [[ $- = *i* ]] && source ~/.dotfiles/liquidprompt/liquidprompt
 
+# OS specific aliases
+case "$OSTYPE" in
+  linux*)
+		alias grep='grep --color=auto'
+		alias fgrep='fgrep --color=auto'
+		alias egrep='egrep --color=auto'
+		alias ls='ls --color=auto'
+
+		alias duh="du -h -d 1 | sort -h"
+		alias nocaps="setxkbmap -option ctrl:nocaps"
+		;;
+  darwin*)
+		alias ls='ls -G'
+		;;
+esac
+
 # aliases
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
 alias ll="ls -alh"
-alias l="ls -1"
-alias cp="gcp"
+alias l="ls -CF1"
 alias rs="rsync -av --progress"
 alias httpd="sudo python -m SimpleHTTPServer 80"
-alias nocaps="setxkbmap -option ctrl:nocaps"
 alias termproxy=". ~/bin/termproxy"
-alias duh="du -h -d 1 | sort -h"
 
+# ZSH completion config
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
