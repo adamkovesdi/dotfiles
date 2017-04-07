@@ -68,6 +68,16 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+if [[ `uname` == 'Darwin' ]]
+then
+function ff { osascript -e 'tell application "Finder"'\
+	-e "if (${1-1} <= (count Finder windows)) then"\
+		-e "get POSIX path of (target of window ${1-1} as alias)"\
+		-e 'else' -e 'get POSIX path of (desktop as alias)'\
+		-e 'end if' -e 'end tell'; };
+
+		function cdff { cd "`ff $@`"; };
+fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 if [ -d "$HOME/.rvm" ]; then
