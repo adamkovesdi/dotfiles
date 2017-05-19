@@ -3,7 +3,11 @@ nmap k gk
 
 set nocompatible
 set hidden
-
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+ 
 set smartindent
 set tabstop=2
 set shiftwidth=2
