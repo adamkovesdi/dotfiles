@@ -1,6 +1,10 @@
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
+# liquidprompt
+# [[ $- = *i* ]] && source ~/.dotfiles/liquidprompt/liquidprompt
+# lean prompt
+[[ $- = *i* ]] && source ~/.dotfiles/lean-prompt.zsh
 
 setopt histignorealldups sharehistory
 
@@ -19,11 +23,6 @@ export PATH=~/bin:$PATH
 # Use modern completion system
 autoload -Uz compinit
 compinit
-
-# liquidprompt
-# [[ $- = *i* ]] && source ~/.dotfiles/liquidprompt/liquidprompt
-# lean prompt
-[[ $- = *i* ]] && source ~/.dotfiles/lean-prompt.zsh
 
 # OS specific aliases
 case "$OSTYPE" in
