@@ -21,7 +21,9 @@ autoload -Uz compinit
 compinit
 
 # liquidprompt
-[[ $- = *i* ]] && source ~/.dotfiles/liquidprompt/liquidprompt
+# [[ $- = *i* ]] && source ~/.dotfiles/liquidprompt/liquidprompt
+# lean prompt
+[[ $- = *i* ]] && source ~/.dotfiles/lean-prompt.zsh
 
 # OS specific aliases
 case "$OSTYPE" in
