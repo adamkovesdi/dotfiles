@@ -10,6 +10,3 @@
 [submodule "vim/bundle/vim-arduino-syntax"]
 	path = vim/bundle/vim-arduino-syntax
 	url = https://github.com/sudar/vim-arduino-syntax
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
