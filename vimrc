@@ -16,7 +16,7 @@ set laststatus=2
 set ignorecase smartcase
 " set undoreload=0
 set ssop-=options    " do not store global and local values in a session
-set ssop-=folds      " do not store folds
+" set ssop-=folds      " do not store folds
 set incsearch
 
 " colors
@@ -35,15 +35,15 @@ nnoremap <C-h> :bp<CR>
 
 function! Writemode()
 	if has("gui_macvim")
+		" should only do this in MacVIM GUI
 		set gfn=Menlo:h13
+		set lines=44
+		set columns=140
 	endif
 	setlocal norelativenumber
 	setlocal nu
 	setlocal linebreak
 	setlocal formatoptions+=1
-	" should only do this in GUI
-	set lines=44
-	set columns=140
 	if filereadable("session.vim")
 		so session.vim
 	endif
@@ -121,7 +121,7 @@ endif
 " autoload folds
 autocmd BufWinEnter *.* silent loadview 
 
-
+" tslime enabler
 let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
