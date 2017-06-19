@@ -34,6 +34,7 @@ case "$OSTYPE" in
 
 		alias duh="du -h -d 1 | sort -h"
 		alias nocaps="setxkbmap -option ctrl:nocaps"
+		alias ff='thunar "$(pwd)"'
 		
 		eval "$(dircolors -b)"
 		;;
