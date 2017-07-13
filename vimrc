@@ -21,6 +21,7 @@ set incsearch
 
 " colors
 set t_Co=256
+set t_ut= 
 
 inoremap <F1> <nop>
 nnoremap <F1> <nop>
@@ -29,37 +30,49 @@ vnoremap <F1> <nop>
 nnoremap <C-l> :bn<CR>
 nnoremap <C-h> :bp<CR>
 
-" set list
-" hi NonText ctermfg=7 guifg=gray
-" hi SpecialKey ctermfg=7 guifg=gray
-
 function! Writemode()
 	if has("gui_macvim")
 		" should only do this in MacVIM GUI
 		set gfn=Menlo:h13
 		set lines=44
 		set columns=140
+		setlocal norelativenumber
+		setlocal nu
+		setlocal linebreak
+		setlocal formatoptions+=1
+		if filereadable("./session.vim")
+			so session.vim
+		endif
+	else
+		call Progmode()
 	endif
-	setlocal norelativenumber
-	setlocal nu
-	setlocal linebreak
-	setlocal formatoptions+=1
-	if filereadable("session.vim")
+endfunction
+
+function! Progmode()
+	set number
+	set relativenumber
+	set cul
+	colorscheme apprentice
+	if !has("gui_macvim")
+		hi Normal ctermbg=Black
+	endif
+	if filereadable("./session.vim")
 		so session.vim
 	endif
 endfunction
+cabbrev pmode call Progmode() 
 
 function! ClearUndo()
     let choice = confirm("Clear undo information?", "&Yes\n&No", 2)
     if choice == 1
         let old_undolevels = &undolevels
         set undolevels=-1
-        exe "normal a \<Bs>\<Esc>"
+				m-1
         let &undolevels = old_undolevels
         echo "done."
     endif
 endfunction
-cabbrev cu call ClearUndo()
+cabbrev cundo call ClearUndo() 
 
 map <F6> :call Writemode()<CR>
 " copy buffer to system clipboard
@@ -78,18 +91,9 @@ if has("gui_running")
 	set background=light
 else
   " This is console Vim.
-  " if exists("+lines")
-    " set lines=50
-  " endif
-  " if exists("+columns")
-    " set columns=100
-  " endif
 	set background=dark
 endif
 
-" set relativenumber
-" set showtabline=2
-" set guioptions-=e
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
