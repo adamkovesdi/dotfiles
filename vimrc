@@ -8,10 +8,6 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
-imap jk <Esc>
-set timeout
-set timeoutlen=100
- 
 set smartindent
 set tabstop=2
 set shiftwidth=2
