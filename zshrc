@@ -35,6 +35,8 @@ case "$OSTYPE" in
 		alias duh="du -h -d 1 | sort -h"
 		alias nocaps="setxkbmap -option ctrl:nocaps"
 		alias ff='thunar "$(pwd)"'
+
+		alias tphome='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
 		
 		eval "$(dircolors -b)"
 		;;
