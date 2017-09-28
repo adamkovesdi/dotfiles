@@ -36,9 +36,21 @@ case "$OSTYPE" in
 		alias nocaps="setxkbmap -option ctrl:nocaps"
 		alias ff='thunar "$(pwd)"'
 
-		alias tphome='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
+		alias tpdual='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
+		alias tpsingle='xrandr --output VGA1 --primary --mode 1680x1050'
+		alias tpoffice='xrandr --output VGA1 --primary --mode 1920x1080'
 		
 		eval "$(dircolors -b)"
+		
+		# if [ -x "$(command -v xcape)" ]; then
+			# if pgrep xcape > /dev/null; then
+				# # echo xcape running
+			# else
+				# setxkbmap -option 'caps:ctrl_modifier'
+				# xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
+			# fi
+		# fi
+
 		;;
 	darwin*)
 		alias ls='ls -G'

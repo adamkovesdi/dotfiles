@@ -18,6 +18,7 @@ set ignorecase smartcase
 set ssop-=options    " do not store global and local values in a session
 " set ssop-=folds      " do not store folds
 set incsearch
+set linebreak
 
 " colors
 set t_Co=256
