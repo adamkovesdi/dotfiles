@@ -24,6 +24,10 @@ export PATH=~/bin:$PATH
 autoload -Uz compinit
 compinit
 
+# auto ls on cd, popd functionality
+function chpwd() { ls }
+set -N
+
 # OS specific aliases
 case "$OSTYPE" in
   linux*)
@@ -38,18 +42,10 @@ case "$OSTYPE" in
 
 		alias tpdual='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
 		alias tpsingle='xrandr --output VGA1 --primary --mode 1680x1050'
-		alias tpoffice='xrandr --output VGA1 --primary --mode 1920x1080'
+		alias tphome='xrandr --output DP1 --primary --mode 2560x1440'
+		alias tpoffice='xrandr --output HDMI1 --primary --mode 1920x1080'
 		
 		eval "$(dircolors -b)"
-		
-		# if [ -x "$(command -v xcape)" ]; then
-			# if pgrep xcape > /dev/null; then
-				# # echo xcape running
-			# else
-				# setxkbmap -option 'caps:ctrl_modifier'
-				# xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
-			# fi
-		# fi
 
 		;;
 	darwin*)
@@ -65,6 +61,7 @@ case "$OSTYPE" in
 esac
 
 # aliases
+alias -s sh="/bin/bash"
 alias speedtest='wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip'
 alias ll="ls -alh"
 alias l="ls -CF1"
