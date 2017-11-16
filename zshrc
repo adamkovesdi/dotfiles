@@ -1,10 +1,12 @@
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
-# liquidprompt
-# [[ $- = *i* ]] && source ~/.dotfiles/liquidprompt/liquidprompt
 # lean prompt
-[[ $- = *i* ]] && source ~/.dotfiles/lean-prompt.zsh
+# [[ $- = *i* ]] && source ~/.dotfiles/lean-prompt.zsh
+
+# my prompt
+# machnie name, [return value of previous command], current directory (last element), privilege prompt
+export PROMPT="%m%(0?.. %F{red}%?) %F{cyan}%1~%F{green}%#%f "
 
 setopt histignorealldups sharehistory
 
