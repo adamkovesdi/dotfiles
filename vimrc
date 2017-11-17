@@ -1,8 +1,14 @@
+"
+" .vimrc of adamkov
+" last major rewrite 2017.11.17.
+"
+
+" traverse wrapped lines
 nmap j gj
 nmap k gk
 
-set nocompatible
-set hidden
+set nocompatible			" No old vi behaviour pls.
+set hidden						" Abandoned buffer becomes hidden 
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -14,9 +20,7 @@ set shiftwidth=2
 set statusline=%<%f\ %h%w%m%r%y%=L:%l/%L\ (%p%%)\ C:%c%V\ B:%o\ F:%{foldlevel('.')}
 set laststatus=2
 set ignorecase smartcase
-" set undoreload=0
 set ssop-=options    " do not store global and local values in a session
-" set ssop-=folds      " do not store folds
 set incsearch
 set linebreak
 
@@ -24,30 +28,37 @@ set linebreak
 set t_Co=256
 set t_ut= 
 
+" kill F1 key functions
 inoremap <F1> <nop>
 nnoremap <F1> <nop>
 vnoremap <F1> <nop>
 
+" buffer navigation shortcuts for me
 nnoremap <C-l> :bn<CR>
 nnoremap <C-h> :bp<CR>
 
+if has("gui_running")
+  set lines=33 columns=100
+	set background=light
+else
+	set background=dark
+endif
+
 function! Writemode()
-	if has("gui_macvim")
-		" should only do this in MacVIM GUI
-		set gfn=Menlo:h13
-		set lines=44
-		set columns=140
-		setlocal norelativenumber
-		setlocal nu
-		setlocal linebreak
-		setlocal formatoptions+=1
-		if filereadable("./session.vim")
-			so session.vim
-		endif
-	else
-		call Progmode()
+	if has("gui_macvim") " should only do this in MacVIM GUI
+		set guifont=Menlo:h13
+	else " I suppose Linux then 
+		set guifont=Monospace\ 13
+	endif
+	set lines=44
+	set columns=140
+	setlocal norelativenumber
+	setlocal nu
+	if filereadable("./session.vim")
+		so session.vim
 	endif
 endfunction
+cabbrev wm call Writemode() 
 
 function! Progmode()
 	set number
@@ -75,40 +86,21 @@ function! ClearUndo()
 endfunction
 cabbrev cundo call ClearUndo() 
 
-map <F6> :call Writemode()<CR>
+map <F6> :call Progmode()<CR>
 " copy buffer to system clipboard
 map <F1> :%y+<CR>
 " copy current line to system clipboard
 map <F2> :normal0"+y$<CR>
+" make shortcut for F12
+map <F12> :make<CR>
 
-cabbrev wmode call Writemode()
+let mapleader = ","			" map leader key to comma
 
-map <F12> :make flash<CR>
-
-if has("gui_running")
-  " GUI is running or is about to start.
-  " Maximize gvim window (for an alternative on Windows, see simalt below).
-  set lines=33 columns=100
-	set background=light
-else
-  " This is console Vim.
-	set background=dark
-endif
-
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-let mapleader = ","
-
-vmap <Leader><Enter> <Plug>SendSelectionToTmux
-nmap <Leader>l :g,^\s*$,d<Enter>
-nmap <Leader>c "+yy 
+vmap <Leader><Enter> <Plug>SendSelectionToTmux " send current selection to tmux
+nmap <Leader>l :g,^\s*$,d<Enter> " remove empty lines from buffer
+nmap <Leader>c "+yy " yank current line to system clipboard
 
 " PRIVACY SETTINGS (no backups, swap files, or viminfo)
-" You can comment out this section and add the following to your ".profile":
-" alias mvim_private="mvim -i NONE --cmd 'set noswapfile' --cmd 'set nobackup' --cmd 'set noautowrite'"
 set nobackup
 set nowritebackup
 set noswapfile
