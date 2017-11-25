@@ -4,9 +4,3 @@
 [submodule "vim/bundle/tslime.vim"]
 	path = vim/bundle/tslime.vim
 	url = https://github.com/jgdavey/tslime.vim
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = https://github.com/vim-airline/vim-airline
-[submodule "vim/bundle/vim-arduino-syntax"]
-	path = vim/bundle/vim-arduino-syntax
-	url = https://github.com/sudar/vim-arduino-syntax
