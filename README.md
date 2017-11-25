@@ -17,15 +17,15 @@ Minimal plugin set:
 
 ## zsh
 
+Low profile no frills to run smoothly on low performance systems (Raspberry Pi, etc.)  
+Few aliases and some autocoplete directives  
 Custom minimal zsh prompt  
 - hostname
 - directory (depth: 1)
 - return code (hidden if 0)
-Few aliases and some autocoplete directives  
-Low profile no frills to run smoothly on low performance systems (Raspberry Pi, etc.)  
 
 ## tmux
 
- Ctrl-A as prefix  
- History, save history facility  
+Ctrl-A as prefix  
+History, save history facility  
 
