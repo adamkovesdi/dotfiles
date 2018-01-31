@@ -1,8 +1,10 @@
+#
+# adamkov zshrc (c) 2016-2018
+#
+
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
-# lean prompt
-# [[ $- = *i* ]] && source ~/.dotfiles/lean-prompt.zsh
 
 # my prompt
 # machnie name, [return value of previous command], current directory (last element), privilege prompt
