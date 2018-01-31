@@ -94,11 +94,15 @@ map <F2> :normal0"+y$<CR>
 " make shortcut for F12
 map <F12> :make<CR>
 
-let mapleader = ","			" map leader key to comma
+" map leader key to comma
+let mapleader = ","
 
-vmap <Leader><Enter> <Plug>SendSelectionToTmux " send current selection to tmux
-nmap <Leader>l :g,^\s*$,d<Enter> " remove empty lines from buffer
-nmap <Leader>c "+yy " yank current line to system clipboard
+" send current selection to tmux
+vmap <Leader><Enter> <Plug>SendSelectionToTmux
+" remove empty lines from buffer
+nmap <Leader>l :g,^\s*$,d<Enter>
+" yank current line to system clipboard
+nmap <Leader>c "+yy
 
 " PRIVACY SETTINGS (no backups, swap files, or viminfo)
 set nobackup

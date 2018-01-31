@@ -45,7 +45,7 @@ case "$OSTYPE" in
 		alias tpdual='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
 		alias tpsingle='xrandr --output VGA1 --primary --mode 1680x1050'
 		alias tphome='xrandr --output DP1 --primary --mode 2560x1440'
-		alias tpoffice='xrandr --output HDMI1 --primary --mode 1920x1080'
+		alias tpoffice='xrandr --output HDMI1 --primary --mode 1920x1080; amixer -D pulse sset Master 100%-'
 		
 		eval "$(dircolors -b)"
 
