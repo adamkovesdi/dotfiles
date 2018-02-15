@@ -12,6 +12,10 @@ export PROMPT="%m%(0?.. %F{red}%?) %F{cyan}%1~%F{green}%#%f "
 
 setopt histignorealldups sharehistory
 
+# Set vim as editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -v
 bindkey "^?" backward-delete-char
@@ -48,6 +52,8 @@ case "$OSTYPE" in
 		alias tpsingle='xrandr --output VGA1 --primary --mode 1680x1050'
 		alias tphome='xrandr --output DP1 --primary --mode 2560x1440'
 		alias tpoffice='xrandr --output HDMI1 --primary --mode 1920x1080; amixer -D pulse sset Master 100%-'
+
+		alias rst='xdotool windowsize --usehints $(xdotool getactivewindow) 195 63'
 		
 		eval "$(dircolors -b)"
 
