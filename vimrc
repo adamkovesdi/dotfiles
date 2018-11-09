@@ -129,4 +129,5 @@ let g:tslime_always_current_window = 1
 " autocommand to set programming mode
 au FileType ruby setl ai ts=2 sts=2 et sw=2 | call Progmode()
 au FileType sh setl ai ts=2 sts=2 et sw=2 | call Progmode()
+au FileType tex call Progmode()
 

@@ -44,10 +44,14 @@ case "$OSTYPE" in
 		alias egrep='egrep --color=auto'
 		alias ls='ls --color=auto'
 
+		# utility aliases
 		alias duh="du -h -d 1 | sort -h"
 		alias nocaps="setxkbmap -option ctrl:nocaps"
 		alias ff='thunar "$(pwd)"'
+		alias mergepdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile="
+		alias sshn="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
+		# display aliases
 		alias tpdual='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
 		alias tpsingle='xrandr --output VGA1 --primary --mode 1680x1050'
 		alias tphome='xrandr --output DP1 --primary --mode 2560x1440'
@@ -60,6 +64,8 @@ case "$OSTYPE" in
 		;;
 	darwin*)
 		alias ls='ls -G'
+		alias sshn="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
 		function ff { osascript -e 'tell application "Finder"'\
 			-e "if (${1-1} <= (count Finder windows)) then"\
 				-e "get POSIX path of (target of window ${1-1} as alias)"\
