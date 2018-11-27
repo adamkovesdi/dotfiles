@@ -50,6 +50,9 @@ case "$OSTYPE" in
 		alias ff='thunar "$(pwd)"'
 		alias mergepdf="gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -dCompressFonts=true -r150 -sOutputFile="
 		alias sshn="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+		alias noise="play -n synth brownnoise"
+		alias noisewave="play -n synth brownnoise synth pinknoise mix synth sine amod 0.35 30"
+		alias noiserain="play -t sl -r48000 -c2 -n synth -1 pinknoise .1 60"
 
 		# display aliases
 		alias tpdual='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
