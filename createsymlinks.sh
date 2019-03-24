@@ -13,5 +13,7 @@ ln -s ~/.dotfiles/vimrc ~/.vimrc
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
+ln -s ~/.dotfiles/inputrc ~/.inputrc
+
 echo
 echo "Completed. If you got File exists errors you already have dotfiles in place. Try deleting first."

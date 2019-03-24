@@ -24,6 +24,10 @@ set ssop-=options    " do not store global and local values in a session
 set incsearch
 set linebreak
 
+" New splits below and to the right (:vs, :sp commands)
+set splitright
+set splitbelow
+
 " colors
 set t_Co=256
 set t_ut= 
@@ -38,7 +42,7 @@ nnoremap <C-l> :bn<CR>
 nnoremap <C-h> :bp<CR>
 
 if has("gui_running")
-  set lines=33 columns=100
+  set lines=40 columns=100
 	set background=light
 else
 	set background=dark
@@ -86,6 +90,28 @@ function! ClearUndo()
 endfunction
 cabbrev cundo call ClearUndo() 
 
+function! PythonDev()
+    " Enable folding
+    set foldmethod=indent
+    set foldlevel=99
+    " Fold/unfold with space
+    nnoremap <space> za
+    " Python formatting
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set textwidth=79
+    set expandtab
+    set autoindent
+    set fileformat=unix
+    set encoding=utf-8
+    syntax on
+    let g:netrw_chgwin=winnr()
+    let g:netrw_winsize=20
+endfunction
+cabbrev pydev call PythonDev()
+
+" change to Programmer mode
 map <F6> :call Progmode()<CR>
 " copy buffer to system clipboard
 map <F1> :%y+<CR>
@@ -103,6 +129,8 @@ vmap <Leader><Enter> <Plug>SendSelectionToTmux
 nmap <Leader>l :g,^\s*$,d<Enter>
 " yank current line to system clipboard
 nmap <Leader>c "+yy
+" reformat using uncrustify
+nmap <Leader>i :%!uncrustify -c ~/.dotfiles/uncrustify.cfg -q<CR>
 
 " PRIVACY SETTINGS (no backups, swap files, or viminfo)
 set nobackup
@@ -130,4 +158,6 @@ let g:tslime_always_current_window = 1
 au FileType ruby setl ai ts=2 sts=2 et sw=2 | call Progmode()
 au FileType sh setl ai ts=2 sts=2 et sw=2 | call Progmode()
 au FileType tex call Progmode()
+au FileType python call PythonDev()
 
+call Progmode()
