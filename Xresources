@@ -1,4 +1,4 @@
-! .Xresources for adamkov 20191106
+! .Xresources for adamkov 20191111
 
 ! Xterm config
 xterm*faceName: Deja Vu Sans Mono
@@ -7,7 +7,7 @@ xterm*vt100*geometry: 80x40
 xterm*saveLines: 16384
 xterm*loginShell: true
 xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
-xterm*termName: xterm-color
+xterm*termName: xterm-256color
 xterm*eightBitInput: false
 
 ! Urxvt config
@@ -15,42 +15,56 @@ URxvt*scrollBar      : false
 URxvt*letterSpace    : -1
 URxvt*font           : xft:Deja Vu Sans Mono:size=9,xft:unifont:medium
 
-!!!!!!!!!!!!!!!!!!!! COLORS !!!!!!!!!!!!!!!!!!!!
-! below are color configurations for xterm and urxvt
+! terminal.sexy tweaked by adamkov
+!define _foreground   #c5c8c6
+!define _background   #1d1f21
+!define _cursorColor  #c5c8c6
+!!define _color0       #282a2e
+!define _color0       #15151f
+!define _color8       #373b41
+!define _color1       #a54242
+!define _color9       #cc6666
+!define _color2       #8c9440
+!define _color10      #b5bd68
+!define _color3       #de935f
+!define _color11      #f0c674
+!define _color4       #5f819d
+!define _color12      #81a2be
+!define _color5       #85678f
+!define _color13      #b294bb
+!define _color6       #5e8d87
+!define _color14      #8abeb7
+!define _color7       #707880
+!define _color15      #c5c8c6
 
-!BLK Cursor
-#define _color0        #000d18
-#define _color8        #000d18
-!RED Tag
-#define _color1        #e89393
-#define _color9        #e89393
-!GRN SpecialKey
-#define _color2        #9ece13
-#define _color10       #9ece13
-!YEL Keyword
-#define _color3        #f0dfaf
-#define _color11       #f0dfaf
-!BLU Number
-#define _color4        #8cd0d3
-#define _color12       #8cd0d3
-!MAG Precondit
-#define _color5        #c0bed1
-#define _color13       #c0bed1
-!CYN Float
-#define _color6        #dfaf8f
-#define _color14       #dfaf8f
-!WHT Search
-#define _color7        #efefef
-#define _color15       #efefef
-!FMT Include, StatusLine, ErrorMsg
+!Theme Two tweaked by adamkov
+! source: http://web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors/
+#define _background rgb:00/00/00
+!define _foreground rgb:7f/7f/7f
+#define _foreground rgb:9f/9f/9f
+#define _cursorColor  #c5c8c6
+#define _color0     rgb:00/00/00
+#define _color1     rgb:9e/18/28
+#define _color2     rgb:ae/ce/92
+#define _color3     rgb:96/8a/38
+#define _color4     rgb:41/41/71
+#define _color5     rgb:96/3c/59
+#define _color6     rgb:41/81/79
+#define _color7     rgb:be/be/be
+#define _color8     rgb:66/66/66
+#define _color9     rgb:cf/61/71
+#define _color10    rgb:c5/f7/79
+#define _color11    rgb:ff/f7/96
+#define _color12    rgb:41/86/be
+#define _color13    rgb:cf/9e/be
+#define _color14    rgb:71/be/be
+#define _color15    rgb:ff/ff/ff
+
+!! DONT touch !!
+
 #define _colorBD       #ffcfaf
 #define _colorUL       #ccdc90
 #define _colorIT       #80d4aa
-!TXT Normal, Normal, Cursor
-#define _foreground    #dcdccc
-#define _background    #1f1f1f
-#define _cursorColor   #8faf9f
-
 URxvt*color0         : _color0
 URxvt*color1         : _color1
 URxvt*color2         : _color2
@@ -95,3 +109,5 @@ XTerm*colorUL        : _colorUL
 XTerm*foreground     : _foreground
 XTerm*background     : _background
 XTerm*cursorColor    : _cursorColor
+
+

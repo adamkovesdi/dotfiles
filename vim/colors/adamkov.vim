@@ -33,7 +33,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "apprentice"
+let colors_name = "adamkov"
 
 if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
   hi Normal         ctermbg=0    ctermfg=250  guibg=#262626 guifg=#bcbcbc cterm=NONE           gui=NONE
