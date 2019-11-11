@@ -1,11 +1,9 @@
 "
 " .vimrc of adamkov
 " last major rewrite 2017.11.17.
-"
+" restructuring 2019.11.11.
 
-" traverse wrapped lines
-nmap j gj
-nmap k gk
+"######################## Generic ########################## 
 
 set nocompatible			" No old vi behaviour pls.
 set hidden						" Abandoned buffer becomes hidden 
@@ -14,50 +12,49 @@ filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
 
-set smartindent
-set tabstop=2
-set shiftwidth=2
+set smartindent				" autoindent follows current style
+set tabstop=2					" tab width is 2 spaces
+set shiftwidth=2			" effect of >> indentation
+
+set ignorecase smartcase " unless capital letters in search ignorecase
+set sessionoptions-=options	" don't store glob/loc vals in session file
+set incsearch					" inclremental search as you type
+set linebreak					" only wrap at breakoption chars (e. nl,)
+
+set nobackup					" no ackup files
+set nowritebackup			" do not write backup files
+set noswapfile				" no swapping
+
+"######################## Looks ########################## 
+
+set number					" line numbering
+set relativenumber	" relative line numbering for jumps
+set cursorline			" highlight the line with cursor
+
 set statusline=%<%f\ %h%w%m%r%y%=L:%l/%L\ (%p%%)\ C:%c%V\ B:%o\ F:%{foldlevel('.')}
-set laststatus=2
-set ignorecase smartcase
-set ssop-=options    " do not store global and local values in a session
-set incsearch
-set linebreak
+set laststatus=2			" always show status line
 
 " New splits below and to the right (:vs, :sp commands)
-set splitright
-set splitbelow
-
-" colors
-" set t_Co=16
-set t_Co=256
-set t_ut= 
-
-" kill F1 key functions
-inoremap <F1> <nop>
-nnoremap <F1> <nop>
-vnoremap <F1> <nop>
-
-" buffer navigation shortcuts
-nnoremap <C-l> :bn<CR>
-nnoremap <C-h> :bp<CR>
+set splitright			" new split position
+set splitbelow			" new split position
 
 if has("gui_running")
   set lines=40 columns=100
-	set background=light
+	" set background=light
 else
 	set background=dark
 endif
 
-" set up my session
-set number
-set relativenumber
-set cul
+"######################## Colors ########################## 
+
+set t_Co=256
+set t_ut= 
 colorscheme adamkov
-if !has("gui_macvim")
-	hi Normal ctermbg=Black
-endif
+
+"######################## Custom funcs  ########################## 
+
 if filereadable("./session.vim")
+	" restore session if available
 	so session.vim
 endif
 
@@ -94,11 +91,19 @@ function! PythonDev()
 endfunction
 cabbrev pydev call PythonDev()
 
+"######################## Keybindings ########################## 
+
+nmap j gj
+nmap k gk
+" Buffer navigation Ctrl+H Ctrl+L
+nnoremap <C-l> :bn<CR>
+nnoremap <C-h> :bp<CR>
+
 " copy buffer to system clipboard
 map <F1> :%y+<CR>
 " copy current line to system clipboard
 map <F2> :normal0"+y$<CR>
-" make shortcut for F12
+" F12 calls GNU make (buildshortcut)
 map <F12> :make<CR>
 
 " map leader key to comma
@@ -114,29 +119,27 @@ nmap <Leader>c "+yy
 " reformat using uncrustify
 nmap <Leader>i :%!uncrustify -c ~/.dotfiles/uncrustify.cfg -q<CR>
 
-" PRIVACY SETTINGS (no backups, swap files, or viminfo)
-set nobackup
-set nowritebackup
-set noswapfile
-" set viminfo="NONE"
+"######################## Plugins ########################## 
 
+if filereadable(expand("~/.vim/autoload/pathogen.vim"))
 " Pathogen framework launcher
 " silent! execute pathogen#infect()
-if filereadable(expand("~/.vim/autoload/pathogen.vim"))
 	runtime! autoload/pathogen.vim
 	if exists("g:loaded_pathogen")
 		execute pathogen#infect()
 	endif
 endif
 
-" autoload folds
-autocmd BufWinEnter *.* silent loadview 
-
 " tslime enabler
 let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
-" autocommand to set programming mode
+"######################## Autocommands ########################## 
+
+" autoload previously saved folds
+autocmd BufWinEnter *.* silent loadview 
+
+" autocommand to set programming mode for filetypes
 au FileType ruby setl ai ts=2 sts=2 et sw=2
 au FileType sh setl ai ts=2 sts=2 et sw=2
 au FileType python call PythonDev()
