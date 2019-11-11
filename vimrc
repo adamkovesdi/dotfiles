@@ -29,6 +29,7 @@ set splitright
 set splitbelow
 
 " colors
+" set t_Co=16
 set t_Co=256
 set t_ut= 
 
@@ -37,7 +38,7 @@ inoremap <F1> <nop>
 nnoremap <F1> <nop>
 vnoremap <F1> <nop>
 
-" buffer navigation shortcuts for me
+" buffer navigation shortcuts
 nnoremap <C-l> :bn<CR>
 nnoremap <C-h> :bp<CR>
 
@@ -48,35 +49,17 @@ else
 	set background=dark
 endif
 
-function! Writemode()
-	if has("gui_macvim") " should only do this in MacVIM GUI
-		set guifont=Menlo:h13
-	else " I suppose Linux then 
-		set guifont=Monospace\ 13
-	endif
-	set lines=44
-	set columns=140
-	setlocal norelativenumber
-	setlocal nu
-	if filereadable("./session.vim")
-		so session.vim
-	endif
-endfunction
-cabbrev wm call Writemode() 
-
-function! Progmode()
-	set number
-	set relativenumber
-	set cul
-	colorscheme apprentice
-	if !has("gui_macvim")
-		hi Normal ctermbg=Black
-	endif
-	if filereadable("./session.vim")
-		so session.vim
-	endif
-endfunction
-cabbrev pmode call Progmode() 
+" set up my session
+set number
+set relativenumber
+set cul
+colorscheme adamkov
+if !has("gui_macvim")
+	hi Normal ctermbg=Black
+endif
+if filereadable("./session.vim")
+	so session.vim
+endif
 
 function! ClearUndo()
     let choice = confirm("Clear undo information?", "&Yes\n&No", 2)
@@ -111,8 +94,6 @@ function! PythonDev()
 endfunction
 cabbrev pydev call PythonDev()
 
-" change to Programmer mode
-map <F6> :call Progmode()<CR>
 " copy buffer to system clipboard
 map <F1> :%y+<CR>
 " copy current line to system clipboard
@@ -125,6 +106,7 @@ let mapleader = ","
 
 " send current selection to tmux
 vmap <Leader><Enter> <Plug>SendSelectionToTmux
+nmap <Leader>? <Plug>SetTmuxVars
 " remove empty lines from buffer
 nmap <Leader>l :g,^\s*$,d<Enter>
 " yank current line to system clipboard
@@ -155,9 +137,7 @@ let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
 " autocommand to set programming mode
-au FileType ruby setl ai ts=2 sts=2 et sw=2 | call Progmode()
-au FileType sh setl ai ts=2 sts=2 et sw=2 | call Progmode()
-au FileType tex call Progmode()
+au FileType ruby setl ai ts=2 sts=2 et sw=2
+au FileType sh setl ai ts=2 sts=2 et sw=2
 au FileType python call PythonDev()
 
-call Progmode()

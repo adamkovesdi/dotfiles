@@ -16,6 +16,9 @@ setopt histignorealldups sharehistory
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+# VST plugins for Renoise, etc.
+export VST_PATH="/usr/lib/lxvst"
+
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -v
 bindkey "^?" backward-delete-char
@@ -26,7 +29,7 @@ SAVEHIST=5000
 HISTFILE=~/.history
 
 # PATH
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/.local/bin:$PATH
 
 # Use modern completion system
 autoload -Uz compinit

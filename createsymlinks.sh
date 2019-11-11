@@ -15,5 +15,7 @@ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 
 ln -s ~/.dotfiles/inputrc ~/.inputrc
 
+ln -s ~/.dotfiles/Xresources ~/.Xresources
+
 echo
 echo "Completed. If you got File exists errors you already have dotfiles in place. Try deleting first."

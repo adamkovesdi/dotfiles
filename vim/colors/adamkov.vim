@@ -2,6 +2,7 @@
 " Author:       Romain Lafourcade (romainlafourcade@gmail.com)
 " Description:  Essentially a streamlining and conversion to xterm colors of
 "               'sorcerer' by Jeet Sukumaran (jeetsukumaran@gmailcom)
+"               Modded by Adam Kovesdi for own purposes
 
 " MADE-UP NAME    HEX        RGB                   XTERM  ANSI
 " ========================================================================
@@ -71,9 +72,12 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
   hi Question         ctermbg=NONE ctermfg=108  guibg=NONE    guifg=#87af87 cterm=NONE           gui=NONE
   hi WarningMsg       ctermbg=NONE ctermfg=131  guibg=NONE    guifg=#af5f5f cterm=NONE           gui=NONE
 
-  hi TabLine          ctermbg=238  ctermfg=101  guibg=#444444 guifg=#87875f cterm=NONE           gui=NONE
+  " hi TabLine          ctermbg=238  ctermfg=101  guibg=#444444 guifg=#87875f cterm=NONE           gui=NONE
+  " hi TabLineFill      ctermbg=238  ctermfg=238  guibg=#444444 guifg=#444444 cterm=NONE           gui=NONE
+  " hi TabLineSel       ctermbg=101  ctermfg=235  guibg=#87875f guifg=#262626 cterm=NONE           gui=NONE
+  hi TabLine          ctermbg=238  ctermfg=103  guibg=#444444 guifg=#8787af cterm=NONE           gui=NONE
   hi TabLineFill      ctermbg=238  ctermfg=238  guibg=#444444 guifg=#444444 cterm=NONE           gui=NONE
-  hi TabLineSel       ctermbg=101  ctermfg=235  guibg=#87875f guifg=#262626 cterm=NONE           gui=NONE
+  hi TabLineSel       ctermbg=103  ctermfg=235  guibg=#8787af guifg=#262626 cterm=NONE           gui=NONE
 
   hi Cursor           ctermbg=242  ctermfg=NONE guibg=#6c6c6c guifg=NONE    cterm=NONE           gui=NONE
   hi CursorColumn     ctermbg=236  ctermfg=NONE guibg=#303030 guifg=NONE    cterm=NONE           gui=NONE
@@ -83,8 +87,10 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
   hi helpLeadBlank    ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=NONE           gui=NONE
   hi helpNormal       ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=NONE           gui=NONE
 
-  hi StatusLine       ctermbg=101  ctermfg=235  guibg=#87875f guifg=#262626 cterm=NONE           gui=NONE
-  hi StatusLineNC     ctermbg=238  ctermfg=101  guibg=#444444 guifg=#87875f cterm=NONE           gui=italic
+  " hi StatusLine       ctermbg=101  ctermfg=235  guibg=#87875f guifg=#262626 cterm=NONE           gui=NONE
+  " hi StatusLineNC     ctermbg=238  ctermfg=101  guibg=#444444 guifg=#87875f cterm=NONE           gui=italic
+  hi StatusLine       ctermbg=103  ctermfg=235  guibg=#8787af guifg=#262626 cterm=NONE           gui=NONE
+  hi StatusLineNC     ctermbg=238  ctermfg=103  guibg=#444444 guifg=#8787af cterm=NONE           gui=italic
 
   hi Visual           ctermbg=235  ctermfg=110  guibg=#262626 guifg=#8fafd7 cterm=reverse        gui=reverse
   hi VisualNOS        ctermbg=NONE ctermfg=NONE guibg=NONE    guifg=NONE    cterm=underline      gui=underline
@@ -156,9 +162,12 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
   hi Question         ctermbg=NONE        ctermfg=green       cterm=NONE
   hi WarningMsg       ctermbg=NONE        ctermfg=darkred     cterm=NONE
 
-  hi TabLine          ctermbg=darkgray    ctermfg=darkyellow  cterm=NONE
+  " hi TabLine          ctermbg=darkgray    ctermfg=darkyellow  cterm=NONE
+  " hi TabLineFill      ctermbg=darkgray    ctermfg=black       cterm=NONE
+  " hi TabLineSel       ctermbg=darkyellow  ctermfg=black       cterm=NONE
+  hi TabLine          ctermbg=darkgray    ctermfg=blue        cterm=NONE
   hi TabLineFill      ctermbg=darkgray    ctermfg=black       cterm=NONE
-  hi TabLineSel       ctermbg=darkyellow  ctermfg=black       cterm=NONE
+  hi TabLineSel       ctermbg=blue        ctermfg=black       cterm=NONE
 
   hi Cursor           ctermbg=NONE        ctermfg=NONE        cterm=NONE
   hi CursorColumn     ctermbg=darkgray    ctermfg=NONE        cterm=NONE
@@ -168,8 +177,10 @@ elseif &t_Co == 8 || $TERM !~# '^linux' || &t_Co == 16
   hi helpLeadBlank    ctermbg=NONE        ctermfg=NONE        cterm=NONE
   hi helpNormal       ctermbg=NONE        ctermfg=NONE        cterm=NONE
 
-  hi StatusLine       ctermbg=darkyellow  ctermfg=black       cterm=NONE
-  hi StatusLineNC     ctermbg=darkgray    ctermfg=darkyellow  cterm=NONE
+  " hi StatusLine       ctermbg=darkyellow  ctermfg=black       cterm=NONE
+  " hi StatusLineNC     ctermbg=darkgray    ctermfg=darkyellow  cterm=NONE
+  hi StatusLine       ctermbg=blue        ctermfg=black       cterm=NONE
+  hi StatusLineNC     ctermbg=darkgray    ctermfg=blue        cterm=NONE
 
   hi Visual           ctermbg=black       ctermfg=blue        cterm=reverse
   hi VisualNOS        ctermbg=black       ctermfg=white       cterm=reverse
