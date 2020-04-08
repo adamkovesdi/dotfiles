@@ -42,6 +42,7 @@ set -N
 # OS specific aliases
 case "$OSTYPE" in
   linux*)
+		# LINUX
 		alias grep='grep --color=auto'
 		alias fgrep='fgrep --color=auto'
 		alias egrep='egrep --color=auto'
@@ -75,7 +76,9 @@ case "$OSTYPE" in
 		eval "$(dircolors -b)"
 
 		;;
+		# END LINUX
 	darwin*)
+		# OSX
 		alias ls='ls -G'
 		alias sshn="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
@@ -86,7 +89,11 @@ case "$OSTYPE" in
 				-e 'end if' -e 'end tell'; };
 
 		function cdff { cd "`ff $@`"; };
+
+		export LC_ALL=en_US.UTF-8
+		export LANG=en_US.UTF-8
 		;;
+		# END OSX
 esac
 
 # aliases
@@ -121,4 +128,3 @@ if [ -d "$HOME/.rvm" ]; then
 	export PATH="$PATH:$HOME/.rvm/bin"
 	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
-
