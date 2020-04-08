@@ -1,6 +1,0 @@
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim
-[submodule "vim/bundle/tslime.vim"]
-	path = vim/bundle/tslime.vim
-	url = https://github.com/jgdavey/tslime.vim

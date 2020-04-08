@@ -40,14 +40,31 @@ set splitbelow			" new split position
 
 if has("gui_running")
   set lines=40 columns=100
-	" set background=light
+	set background=dark
+	colorscheme adamkov
 else
 	set background=dark
+	colorscheme wal
 endif
+
+"######################## Plugins ########################## 
+
+if filereadable(expand("~/.vim/autoload/pathogen.vim"))
+" Pathogen framework launcher
+" silent! execute pathogen#infect()
+	runtime! autoload/pathogen.vim
+	if exists("g:loaded_pathogen")
+		execute pathogen#infect()
+	endif
+endif
+
+" tslime enabler
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
 
 "######################## Colors ########################## 
 
-"set t_Co=256
+" set t_Co=256
 set t_ut= 
 colorscheme adamkov
 
@@ -118,21 +135,6 @@ nmap <Leader>l :g,^\s*$,d<Enter>
 nmap <Leader>c "+yy
 " reformat using uncrustify
 nmap <Leader>i :%!uncrustify -c ~/.dotfiles/uncrustify.cfg -q<CR>
-
-"######################## Plugins ########################## 
-
-if filereadable(expand("~/.vim/autoload/pathogen.vim"))
-" Pathogen framework launcher
-" silent! execute pathogen#infect()
-	runtime! autoload/pathogen.vim
-	if exists("g:loaded_pathogen")
-		execute pathogen#infect()
-	endif
-endif
-
-" tslime enabler
-let g:tslime_always_current_session = 1
-let g:tslime_always_current_window = 1
 
 "######################## Autocommands ########################## 
 

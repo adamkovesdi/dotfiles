@@ -64,7 +64,14 @@ case "$OSTYPE" in
 		alias tpoffice='xrandr --output HDMI1 --primary --mode 1920x1080; amixer -D pulse sset Master 100%-'
 
 		alias rst='xdotool windowsize --usehints $(xdotool getactivewindow) 195 63'
+
+		# network aliases
 		
+		alias wireless="nmcli conn down eth; sleep 1; nmcli conn up clear-guest"
+		alias wired="nmcli conn down riznet; sleep 1; nmcli conn down clear-guest; sleep 1; nmcli conn up eth"
+		alias vpn="nmcli conn up riznet"
+		alias wvpn="nmcli conn down eth; sleep 1; nmcli conn up clear-guest; sleep 1; nmcli conn up riznet"
+
 		eval "$(dircolors -b)"
 
 		;;
