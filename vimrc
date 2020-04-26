@@ -24,6 +24,7 @@ set linebreak					" only wrap at breakoption chars (e. nl,)
 set nobackup					" no ackup files
 set nowritebackup			" do not write backup files
 set noswapfile				" no swapping
+let g:netrw_dirhistmax=0 "no history file
 
 "######################## Looks ########################## 
 
