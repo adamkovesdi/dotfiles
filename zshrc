@@ -123,8 +123,14 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# Ruby
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 if [ -d "$HOME/.rvm" ]; then
 	export PATH="$PATH:$HOME/.rvm/bin"
 	[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
+
+# Python
+export PYTHONDONTWRITEBYTECODE=1
+
+
