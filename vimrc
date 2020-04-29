@@ -136,6 +136,8 @@ nmap <Leader>l :g,^\s*$,d<Enter>
 nmap <Leader>c "+yy
 " reformat using uncrustify
 nmap <Leader>i :%!uncrustify -c ~/.dotfiles/uncrustify.cfg -q<CR>
+" autopep8 current buffer
+nmap <Leader>8 :%!autopep8 -<CR>
 
 "######################## Autocommands ########################## 
 
