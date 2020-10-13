@@ -148,4 +148,5 @@ autocmd BufWinEnter *.* silent loadview
 au FileType ruby setl ai ts=2 sts=2 et sw=2
 au FileType sh setl ai ts=2 sts=2 et sw=2
 au FileType python call PythonDev()
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
