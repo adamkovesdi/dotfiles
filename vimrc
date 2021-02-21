@@ -71,6 +71,18 @@ colorscheme adamkov
 
 "######################## Custom funcs  ########################## 
 
+function! FzyCommand(choice_command, vim_command)
+  try
+    let output = system(a:choice_command . " | fzy ")
+  catch /Vim:Interrupt/
+    " Swallow errors from ^C, allow redraw! below
+  endtry
+  redraw!
+  if v:shell_error == 0 && !empty(output)
+    exec a:vim_command . ' ' . output
+  endif
+endfunction
+
 if filereadable("./session.vim")
 	" restore session if available
 	so session.vim
@@ -138,6 +150,9 @@ nmap <Leader>c "+yy
 nmap <Leader>i :%!uncrustify -c ~/.dotfiles/uncrustify.cfg -q<CR>
 " autopep8 current buffer
 nmap <Leader>8 :%!autopep8 -<CR>
+" fzy finder THE CtrlP alternative
+nnoremap <Leader>e :call FzyCommand("find . -type f 2>/dev/null", ":e")<cr>
+nnoremap <Leader>c :call FzyCommand("find . -type f -iname \\\*.c -o -iname \\\*.h 2>/dev/null", ":e")<cr>
 
 "######################## Autocommands ########################## 
 
@@ -149,4 +164,3 @@ au FileType ruby setl ai ts=2 sts=2 et sw=2
 au FileType sh setl ai ts=2 sts=2 et sw=2
 au FileType python call PythonDev()
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
