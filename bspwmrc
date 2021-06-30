@@ -1,0 +1,55 @@
+#! /bin/bash
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x compton > /dev/null || compton &
+pgrep -x dunst > /dev/null || dunst &
+pgrep -x clipit > /dev/null || clipit &
+#pgrep -x polybar > /dev/null || polybar bar &
+#if pgrep -x polybar > /dev/null
+#then
+  #echo "Polybar already running"
+#else
+  #polybar --reload bar &
+  #polybar --reload clock &
+#fi
+
+autorandr -c
+# pacmd set-default-sink 1
+
+monitorcount=$(bspc query -M | wc -l)
+
+if [ $monitorcount == "1" ]; then
+  bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+  notify-send singlemonitor
+  killall polybar
+  polybar --reload bar &
+else
+  bspc monitor DP-2-1 -d 1 2 3 4 10
+  bspc monitor DP-2-2 -d 5 6 7 8 9
+  notify-send dualmonitor
+  killall polybar
+  polybar --reload bar &
+  polybar --reload clock &
+fi
+
+#feh --bg-tile --no-fehbg ~/Pictures/wallpaper/my/1005.png
+hsetroot -tile ~/Pictures/wallpaper/tile2/z_simple_dashed_@2X.png -tint "#656565"
+xsetroot -cursor_name left_ptr
+
+bspc config remove_unplugged_monitors true
+bspc config remove_disabled_monitors true
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config focus_follows_pointer true
+bspc config remove_disabled_monitors true
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='8' state=floating follow=on
+bspc rule -a Thunar state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off

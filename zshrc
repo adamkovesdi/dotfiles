@@ -39,6 +39,10 @@ compinit
 function chpwd() { ls }
 set -N
 
+function findstr() {
+	find . -type f -exec grep -l "$1" {} \;
+}
+
 # OS specific aliases
 case "$OSTYPE" in
   linux*)

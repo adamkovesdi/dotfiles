@@ -135,6 +135,10 @@ map <F1> :%y+<CR>
 map <F2> :normal0"+y$<CR>
 " F12 calls GNU make (buildshortcut)
 map <F12> :make<CR>
+map <F8> :make run<CR>
+
+nnoremap <F5> "=strftime('%Y%m%d.%H%M')<CR>P
+inoremap <F5> <C-R>=strftime('%Y%m%d.%H%M')<CR>
 
 " map leader key to comma
 let mapleader = ","
@@ -153,6 +157,10 @@ nmap <Leader>8 :%!autopep8 -<CR>
 " fzy finder THE CtrlP alternative
 nnoremap <Leader>e :call FzyCommand("find . -type f 2>/dev/null", ":e")<cr>
 nnoremap <Leader>c :call FzyCommand("find . -type f -iname \\\*.c -o -iname \\\*.h 2>/dev/null", ":e")<cr>
+
+"######################## Abbrevs  ##########################
+
+iab <expr> dts strftime("%Y%m%d.%H%M")
 
 "######################## Autocommands ########################## 
 
