@@ -10,11 +10,18 @@ super + Return
 alt + Return
 	xterm
 
+alt + Tab
+	rofi -show window -theme sidebar
+
 super + @space
-	dmenu_run -sb '#8787af' -sf '#030303'
+	rofi -combi-modi window,drun,ssh -theme android_notification -show combi
+	# dmenu_run -sb '#8787af' -sf '#030303'
 
 alt + shift + d
 	dmenu_run
+
+alt + shift + r
+	autorandr -c road
 
 #super + alt + f
 alt + F2; f
@@ -42,10 +49,16 @@ alt + F2; s
 
 #super + alt + u
 alt + shift + x; u
+	autorandr -c road ;\
 	xdotool mousemove 0 0 && i3lock -c 000000 && systemctl suspend
 
+alt + shift + x; l
+	xdotool mousemove 0 0 && i3lock -c 000000 ; \
+	sleep 1 && xset dpms force off
+
 super + alt + Print
-	~/.config/bspwm/bspwmrc
+	bspc wm -r
+# ~/.config/bspwm/bspwmrc
 
 shift + Print
 	scrot -e 'mv $f /tmp/ && gimp /tmp/$f'

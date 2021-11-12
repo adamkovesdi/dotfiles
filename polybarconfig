@@ -4,14 +4,15 @@ foreground = #9a9a9a
 highlight = #cdcdcd
 inversefg = #232323
 inversebg = #787878
+shadowed = #232323
 
 
 [bar/bar]
 bottom = false
 enable-ipc=true
 height = 12
-width = 18%
-offset-x = 80%
+width = 100%
+offset-x = 0
 offset-y = 0
 border-size = 0
 border-color = ${colors.foreground}
@@ -21,12 +22,12 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-padding = 1
+padding = 3
 font-0 = fixed:pixelsize=8;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
 
-modules-right = bspwm battery0 battery1 pulseaudio time 
+modules-left = bspwm
+modules-right = battery0 battery1 pulseaudio time 
 
 scroll-up = bspwn-wsnext
 scroll-down = bspwn-wsprev
@@ -34,41 +35,34 @@ scroll-down = bspwn-wsprev
 wm-restack = bspwm
 override-redirect = true
 
-tray-position = right
+tray-position = left
+tray-padding = 15
 
 
 [bar/clock]
 bottom = true
 monitor = DP-2-2
-enable-ipc=true
 height = 12
-width = 18%
-offset-x = 80%
-offset-y = 0
-border-size = 0
-border-color = ${colors.foreground}
+width = 100%
 module-margin = 2
+
+enable-ipc=true
+wm-restack = bspwm
+override-redirect = true
 
 fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-padding = 1
 font-0 = fixed:pixelsize=8;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
 
 modules-right = time 
-
-wm-restack = bspwm
-override-redirect = true
-
 
 
 [module/bspwm]
 type = internal/bspwm
 format = <label-state>
-index-sort = true
+index-sort = false
 
 enable-click = true
 reverse-scroll = false
@@ -77,10 +71,10 @@ label-focused = .%name%.
 label-focused-foreground = ${colors.inversefg}
 label-focused-background = ${colors.inversebg}
 label-occupied = %name%
+label-occupied-padding = 1
 label-empty = 
 
 pin-workspaces = false
-
 
 [module/time]
 type = internal/date
@@ -88,30 +82,28 @@ interval = 10
 format-margin = 0
 
 time = "%H:%M"
-;date = "%a %d %b"
 date = "%b %d %a"
 
 label = %date%  %time%
 label-foreground = ${colors.foreground}
 label-background = ${colors.background}
-;label-padding = 2
 
 
 [module/pulseaudio]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1b.0.analog-stereo
 
-format-volume = <label-volume>
+format-volume = { <label-volume>
 label-volume = %percentage:2:3%%
 format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.background}
+format-volume-background = ${colors.shadowed}
 format-volume-padding = 0
 use-ui-max = false
 interval = 5
 
-label-muted = mut %percentage:2:3%%
-label-muted-background = ${colors.background}
-label-muted-foreground = ${colors.foreground}
+label-muted = x %percentage:2:3%%
+label-muted-background = ${colors.inversebg}
+label-muted-foreground = ${colors.inversefg}
 
 [module/battery0]
 type = internal/battery
@@ -133,8 +125,9 @@ format-discharging = .<label-discharging>.
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
 compositing-background = screen
+
+;compositing-background = xor
 ;compositing-foreground = source
 ;compositing-border = over
 ;pseudo-transparency = true

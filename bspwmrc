@@ -30,6 +30,7 @@ else
   killall polybar
   polybar --reload bar &
   polybar --reload clock &
+  xset s 1800
 fi
 
 #feh --bg-tile --no-fehbg ~/Pictures/wallpaper/my/1005.png

@@ -1,5 +1,9 @@
 ! .Xresources for adamkov 20191111
 
+! Sxiv
+Sxiv.foreground: #bbbbbb
+Sxiv.background: #222222
+
 ! Xterm config
 xterm*faceName: Deja Vu Sans Mono
 xterm*faceSize: 9
@@ -15,32 +19,9 @@ URxvt*scrollBar      : false
 URxvt*letterSpace    : -1
 URxvt*font           : xft:Deja Vu Sans Mono:size=9,xft:unifont:medium
 
-! terminal.sexy tweaked by adamkov
-!define _foreground   #c5c8c6
-!define _background   #1d1f21
-!define _cursorColor  #c5c8c6
-!!define _color0       #282a2e
-!define _color0       #15151f
-!define _color8       #373b41
-!define _color1       #a54242
-!define _color9       #cc6666
-!define _color2       #8c9440
-!define _color10      #b5bd68
-!define _color3       #de935f
-!define _color11      #f0c674
-!define _color4       #5f819d
-!define _color12      #81a2be
-!define _color5       #85678f
-!define _color13      #b294bb
-!define _color6       #5e8d87
-!define _color14      #8abeb7
-!define _color7       #707880
-!define _color15      #c5c8c6
-
 !Theme Two tweaked by adamkov
 ! source: http://web.archive.org/web/20090130061234/http://phraktured.net/terminal-colors/
 #define _background rgb:00/00/00
-!define _foreground rgb:7f/7f/7f
 #define _foreground rgb:9f/9f/9f
 #define _cursorColor  #c5c8c6
 #define _color0     rgb:00/00/00
