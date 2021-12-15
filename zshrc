@@ -62,6 +62,8 @@ case "$OSTYPE" in
 		alias noisewave="play -n synth brownnoise synth pinknoise mix synth sine amod 0.35 30"
 		alias noiserain="play -t sl -r48000 -c2 -n synth -1 pinknoise .1 60"
 
+		alias psef="ps -ef| grep -v '\['"
+
 		# display aliases
 		alias tpdual='xrandr --output VGA1 --mode 1680x1050 --pos 0x0 --output HDMI1 --mode 1280x1024 --pos 1680x0'
 		alias tpsingle='xrandr --output VGA1 --primary --mode 1680x1050'
