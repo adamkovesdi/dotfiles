@@ -5,7 +5,7 @@
 ######################### RUNNERS #########################
 
 super + Return
-	xfce4-terminal
+	xfce4-terminal --zoom=1
 
 alt + Return
 	xterm
