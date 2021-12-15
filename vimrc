@@ -118,6 +118,9 @@ function! PythonDev()
     syntax on
     let g:netrw_chgwin=winnr()
     let g:netrw_winsize=20
+		set efm=%Cline\ %l,%Ccolumn\ %c,%Z%m,%EError\ %n
+		map <buffer> <F4> :!python3 %<CR>
+		map <buffer> <F9> :cexpr system('pep8 ' . shellescape(expand('%')))<CR>
 endfunction
 cabbrev pydev call PythonDev()
 
