@@ -56,6 +56,10 @@ alt + shift + x; l
 	xdotool mousemove 0 0 && i3lock -c 000000 ; \
 	sleep 1 && xset dpms force off
 
+alt + shift + x; o
+	xdotool mousemove 0 0; \
+	sleep 1 && xset dpms force off
+
 super + alt + Print
 	bspc wm -r
 # ~/.config/bspwm/bspwmrc
