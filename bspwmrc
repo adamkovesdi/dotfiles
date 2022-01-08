@@ -13,6 +13,8 @@ pgrep -x clipit > /dev/null || clipit &
   #polybar --reload clock &
 #fi
 
+xkbset bouncekeys 20
+
 autorandr -c
 # pacmd set-default-sink 1
 

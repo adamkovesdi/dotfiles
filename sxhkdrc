@@ -8,7 +8,8 @@ super + Return
 	xfce4-terminal --zoom=1
 
 alt + Return
-	xterm
+	xfce4-terminal
+	# xterm
 
 alt + Tab
 	rofi -show window -theme sidebar
