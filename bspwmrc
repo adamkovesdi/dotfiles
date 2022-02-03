@@ -13,7 +13,7 @@ pgrep -x clipit > /dev/null || clipit &
   #polybar --reload clock &
 #fi
 
-xkbset bouncekeys 20
+xkbset bouncekeys 30
 
 autorandr -c
 # pacmd set-default-sink 1
@@ -44,7 +44,8 @@ bspc config remove_unplugged_monitors true
 bspc config remove_disabled_monitors true
 
 bspc config border_width         2
-bspc config window_gap          12
+bspc config window_gap           0
+bspc config top_padding          12
 
 bspc config focus_follows_pointer true
 bspc config remove_disabled_monitors true

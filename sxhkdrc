@@ -141,6 +141,19 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
+#super + alt + {0-9} ; {_,super + ,alt + ,super + alt + }{0-9}
+	#one={10,1-9} {_,_,_,_}two={10,1-9}; \
+	#bspc node "@^$one:/" -s "@^$two:/" \
+	    #|| bspc node "@^$one:/" -d "^$two" \
+	    #|| bspc node "@^$two:/" -d "^$one"
+
+# Swap current desktop contents with another one
+# https://www.reddit.com/r/bspwm/comments/idq7gg/swapping_the_contents_of_2_desktops_nodes/
+super + alt + {0-9}
+	target={10,1-9}; \
+	bspc node "@focused:/" -s "@^$target:/" \
+	    || bspc node "@focused:/" -d "^$target" \
+	    || bspc node "@^$two:/" -d focused
 
 ######################### PRESELECT #########################
 

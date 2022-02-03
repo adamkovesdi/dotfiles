@@ -40,7 +40,7 @@ tray-padding = 15
 
 
 [bar/clock]
-bottom = true
+bottom = false
 monitor = DP-2-2
 height = 12
 width = 100%
