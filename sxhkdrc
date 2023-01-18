@@ -2,6 +2,7 @@
 # adamkov 2021
 # based on defaults and my shortcuts
 
+
 ######################### RUNNERS #########################
 
 super + Return
@@ -15,7 +16,7 @@ alt + Tab
 	rofi -show window -theme sidebar
 
 super + @space
-	rofi -combi-modi window,drun,ssh -theme android_notification -show combi
+	rofi -combi-modi drun,ssh -theme android_notification -show combi
 	# dmenu_run -sb '#8787af' -sf '#030303'
 
 alt + shift + d
@@ -24,17 +25,25 @@ alt + shift + d
 alt + shift + r
 	autorandr -c road
 
-#super + alt + f
 alt + F2; f
-	firefox -P adamkov	
+# firefox -P adamkov
+	~/Programs/firefox/firefox-esr-next-102.2.r20220818165803-x86_64.AppImage firefox -P adamkov
 
 # super + alt + w
 alt + F2; w
 	~/Programs/thunderbird/thunderbird -new-instance -P adamkovorcl
 
+# bar
+super + b
+	if [[ $(bspc config top_padding) -eq 0 ]]; then bspc config top_padding 12; else bspc config top_padding 0; fi
+
+# notes
+shift + F12
+	~/bin/notes
+
 #super + alt + p
-alt + F2; p
-	~/Programs/thunderbird/thunderbird -new-instance -P akgmail
+# alt + F2; p
+# ~/Programs/thunderbird/thunderbird -new-instance -P akgmail
 
 #super + alt + o
 alt + F2; v
@@ -61,9 +70,8 @@ alt + shift + x; o
 	xdotool mousemove 0 0; \
 	sleep 1 && xset dpms force off
 
-super + alt + Print
+super + Print
 	bspc wm -r
-# ~/.config/bspwm/bspwmrc
 
 shift + Print
 	scrot -e 'mv $f /tmp/ && gimp /tmp/$f'

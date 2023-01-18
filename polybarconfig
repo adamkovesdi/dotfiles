@@ -1,7 +1,8 @@
 [colors]
-background = #55232323
+# background = #55232323
+background = #232323
 foreground = #9a9a9a
-highlight = #cdcdcd
+highlight = #cd1d1d
 inversefg = #232323
 inversebg = #787878
 shadowed = #232323
@@ -37,26 +38,6 @@ override-redirect = true
 
 tray-position = left
 tray-padding = 15
-
-
-[bar/clock]
-bottom = false
-monitor = DP-2-2
-height = 12
-width = 100%
-module-margin = 2
-
-enable-ipc=true
-wm-restack = bspwm
-override-redirect = true
-
-fixed-center = true
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-font-0 = fixed:pixelsize=8;1
-
-modules-right = time 
 
 
 [module/bspwm]
@@ -133,5 +114,5 @@ compositing-background = screen
 ;pseudo-transparency = true
 
 [global/wm]
-margin-top = 0
-margin-bottom = 0
+# margin-top = 0
+# margin-bottom = 0
