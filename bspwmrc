@@ -29,7 +29,7 @@ else
   xset dpms 1800 1800 1800
 fi
 
-hsetroot -tile ~/Pictures/wallpaper/tile2/z_simple_dashed_@2X.png -tint "#656565"
+hsetroot -tile ~/Pictures/wp.png -tint "#656565"
 xsetroot -cursor_name left_ptr
 
 bspc config remove_unplugged_monitors true

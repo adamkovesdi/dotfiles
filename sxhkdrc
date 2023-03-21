@@ -26,8 +26,8 @@ alt + shift + r
 	autorandr -c road
 
 alt + F2; f
-# firefox -P adamkov
-	~/Programs/firefox/firefox-esr-next-102.2.r20220818165803-x86_64.AppImage firefox -P adamkov
+	firefox -P adamkov
+	#~/Programs/firefox/firefox-esr-next-102.2.r20220818165803-x86_64.AppImage firefox -P adamkov
 
 # super + alt + w
 alt + F2; w
