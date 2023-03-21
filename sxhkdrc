@@ -37,13 +37,14 @@ alt + F2; w
 super + b
 	if [[ $(bspc config top_padding) -eq 0 ]]; then bspc config top_padding 12; else bspc config top_padding 0; fi
 
+# clipboard
+
+ctrl + alt + h
+	/usr/bin/diodon
+
 # notes
 shift + F12
 	~/bin/notes
-
-#super + alt + p
-# alt + F2; p
-# ~/Programs/thunderbird/thunderbird -new-instance -P akgmail
 
 #super + alt + o
 alt + F2; v
