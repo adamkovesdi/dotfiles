@@ -1,5 +1,7 @@
 ! .Xresources for adamkov 20191111
 
+Xcursor.size: 14
+
 ! Sxiv
 Sxiv.foreground: #bbbbbb
 Sxiv.background: #222222
