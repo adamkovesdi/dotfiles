@@ -48,7 +48,7 @@ shift + F12
 
 #super + alt + o
 alt + F2; v
-	bspc desktop -f 8 ;\
+	bspc desktop -f 9 ;\
 	xterm -e ~/bin/ovpn
 
 #super + alt + s
@@ -61,7 +61,7 @@ alt + F2; s
 #super + alt + u
 alt + shift + x; u
 	autorandr -c road ;\
-	xdotool mousemove 0 0 && i3lock -c 000000 && systemctl suspend
+	xdotool mousemove 0 0 && i3lock -c 000000 && sleep 1 && systemctl suspend
 
 alt + shift + x; l
 	xdotool mousemove 0 0 && i3lock -c 000000 ; \
@@ -134,11 +134,11 @@ super + {_,shift + }{h,j,k,l}
 # super + {_,shift + }{1-9,0}
 # bspc {desktop -f,node -d} '{1-9,10}'
 
-super + {1-9,0}
-	bspc desktop -f '{1-9,10}'
+super + {1-9}
+	bspc desktop -f '{1-9}'
 
-super + shift + {1-9,0}
-	id=$(bspc query -N -n); bspc node -d {1-9,10}; bspc node -f ${id}
+super + shift + {1-9}
+	id=$(bspc query -N -n); bspc node -d {1-9}; bspc node -f ${id}
 
 # focus the last node/desktop
 super + {grave,Tab}
@@ -158,8 +158,8 @@ super + {o,i}
 
 # Swap current desktop contents with another one
 # https://www.reddit.com/r/bspwm/comments/idq7gg/swapping_the_contents_of_2_desktops_nodes/
-super + alt + {0-9}
-	target={10,1-9}; \
+super + alt + {1-9}
+	target={1-9}; \
 	bspc node "@focused:/" -s "@^$target:/" \
 	    || bspc node "@focused:/" -d "^$target" \
 	    || bspc node "@^$two:/" -d focused

@@ -15,12 +15,12 @@ xinput --set-prop $(xinput | perl -ne 'if(/TrackPoint.*id=(\d+)/) { print $1; }'
 monitorcount=$(bspc query -M | wc -l)
 
 if [ $monitorcount == "1" ]; then
-  bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+  bspc monitor -d 1 2 3 4 5 6 7 8 9
   notify-send singlemonitor
   killall polybar
   polybar --reload bar &
 elif [ $monitorcount == "3" ]; then
-  bspc monitor primary -d 1 2 3 4 10
+  bspc monitor primary -d 1 2 3 4
   bspc monitor ^2 -d 5 6 7 8
   bspc monitor ^3 -d 9
   notify-send triplemonitor
@@ -29,7 +29,7 @@ elif [ $monitorcount == "3" ]; then
   xset s 1800
   xset dpms 1800 1800 1800
 else
-  bspc monitor primary -d 1 2 3 4 5 10
+  bspc monitor primary -d 1 2 3 4 5
   bspc monitor ^2 -d 6 7 8 9
   notify-send dualmonitor
   killall polybar
@@ -56,6 +56,9 @@ bspc config remove_disabled_monitors true
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+
+# focus color
+bspc config focused_border_color "#00ccff"
 
 bspc rule -a Gimp desktop='8' state=floating follow=on
 bspc rule -a Thunar state=floating
